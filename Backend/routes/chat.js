@@ -88,7 +88,7 @@ router.post("/chat", async(req, res) => {
             thread.messages.push({role: "user", content: message});
         }
 
-        const assistantReply = await getOpenAIAPIResponse(message);
+        const assistantReply = await getGroqAIAPIResponse(message);
 
         thread.messages.push({role: "assistant", content: assistantReply});
         thread.updatedAt = new Date();
