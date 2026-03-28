@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { MyContext } from "./mycontext.jsx";
 import {v1 as uuidv1} from "uuid";
 
+
 function Sidebar() {
     const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
 
@@ -67,7 +68,7 @@ const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
     return (
         <section className="sidebar">
             <button onClick={createNewChat}>
-                <img src="src/assets/AlphaChat logo.png" alt="AlphaChat logo" className="logo"></img>
+                <img src="src/assets/AlphaChat_logo.png" alt="AlphaChat logo" className="logo"></img>
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>
 
