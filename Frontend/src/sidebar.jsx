@@ -8,8 +8,7 @@ function Sidebar() {
 
     const getAllThreads = async () => {
         try {
-const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread`)
-;
+const response = await fetch("http://localhost:8080/api/thread");
             const res = await response.json();
             const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
             //console.log(filteredData);
@@ -36,8 +35,9 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread`)
         setCurrThreadId(newThreadId);
 
         try {
-fetch(`${import.meta.env.VITE_API_URL}/api/thread/${newThreadId}`)
-            const res = await response.json();
+const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
+       
+        const res = await response.json();
             console.log(res);
             setPrevChats(res);
             setNewChat(false);
@@ -49,8 +49,7 @@ fetch(`${import.meta.env.VITE_API_URL}/api/thread/${newThreadId}`)
 
     const deleteThread = async (threadId) => {
         try {
-fetch(`${import.meta.env.VITE_API_URL}/api/thread/${threadId}`, { method: "DELETE" })
-            const res = await response.json();
+ const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {method: "DELETE"});            const res = await response.json();
             console.log(res);
 
             //updated threads re-render

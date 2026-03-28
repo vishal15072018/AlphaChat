@@ -27,7 +27,7 @@ function ChatWindow() {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/api/chat", options);
+const response = await fetch("http://localhost:8080/api/chat", options);
             const res = await response.json();
             console.log(res);
             setReply(res.reply);
@@ -62,7 +62,7 @@ function ChatWindow() {
     return (
         <div className="chatWindow">
             <div className="navbar">
-                <span>SigmaGPT <i className="fa-solid fa-chevron-down"></i></span>
+                <span> AlphaChat </span>
                 <div className="userIconDiv" onClick={handleProfileClick}>
                     <span className="userIcon"><i className="fa-solid fa-user"></i></span>
                 </div>
@@ -92,7 +92,7 @@ function ChatWindow() {
                     <div id="submit" onClick={getReply}><i className="fa-solid fa-paper-plane"></i></div>
                 </div>
                 <p className="info">
-                    SigmaGPT can make mistakes. Check important info. See Cookie Preferences.
+                    AlphaChat can make mistakes. Check important info. See Cookie Preferences.
                 </p>
             </div>
         </div>
