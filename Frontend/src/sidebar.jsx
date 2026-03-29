@@ -2,7 +2,7 @@ import "./sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./mycontext.jsx";
 import {v1 as uuidv1} from "uuid";
-import logo from "../assets/AlphaChat_logo.png";
+import logo from "./assets/AlphaChat_logo.png";
 
 
 
