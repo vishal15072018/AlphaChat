@@ -2,7 +2,7 @@ import "./sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./mycontext.jsx";
 import {v1 as uuidv1} from "uuid";
-import logo from './assets/AlphaChat_logo.png';
+
 
 
 function Sidebar() {
@@ -10,7 +10,7 @@ function Sidebar() {
 
     const getAllThreads = async () => {
         try {
-const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread`);
+const response = await fetch("http://localhost:8080/api/thread");
             const res = await response.json();
             const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
             //console.log(filteredData);
@@ -37,7 +37,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread`);
         setCurrThreadId(newThreadId);
 
         try {
-const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread/${newThreadId}`);
+const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
        
         const res = await response.json();
             console.log(res);
@@ -51,9 +51,8 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread/${newTh
 
     const deleteThread = async (threadId) => {
         try {
-const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread/${threadId}`, {
-  method: "DELETE",
-});            console.log(response);
+ const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {method: "DELETE"});            const res = await response.json();
+            console.log(res);
 
             //updated threads re-render
             setAllThreads(prev => prev.filter(thread => thread.threadId !== threadId));
@@ -70,7 +69,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread/${threa
     return (
         <section className="sidebar">
             <button onClick={createNewChat}>
-                <img src={logo} alt="AlphaChat logo" className="logo"></img>
+                <img src="src/assets/AlphaChat_logo.png" alt="AlphaChat logo" className="logo"></img>
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>
 
